@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TCS Hiring Statement</title>
+  <meta name="description" content="A statement from tenured and tenure-track faculty in theoretical computer science on hiring and evaluation norms in the post-AI era.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fff;
+      --fg: #111;
+      --muted: #666;
+      --rule: #ddd;
+      --accent: #8a2b2b;
+      --box: #f6f6f6;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+      font-size: 1.125rem;
+      line-height: 1.65;
+    }
+    main {
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 4rem 1.25rem 5rem;
+    }
+    .panel h2 { margin-top: 3.5rem; }
+
+    h1 {
+      font-size: 2rem;
+      line-height: 1.2;
+      font-weight: 600;
+      margin: 0 0 0.5rem;
+    }
+    .subtitle { color: var(--muted); margin: 0 0 2.5rem; }
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 3.5rem 0 1rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+    a { color: var(--accent); text-underline-offset: 2px; }
+    p { margin: 0 0 1.1rem; }
+    ol { padding-left: 1.4rem; margin: 0 0 1.1rem; }
+    li { margin-bottom: 0.4rem; }
+
+    nav {
+      font-size: 0.95rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .statement {
+      background: var(--box);
+      border-left: 3px solid var(--accent);
+      padding: 1.5rem 1.5rem 0.75rem;
+      margin: 1.5rem 0;
+    }
+    .statement .lead { font-style: italic; }
+    .statement ol li { margin-bottom: 0.9rem; }
+    .footnote { font-size: 0.9rem; }
+    sup a { text-decoration: none; }
+
+    .sign {
+      text-align: center;
+      margin: 2.5rem 0 0;
+    }
+    .sign p { color: var(--muted); font-size: 0.95rem; line-height: 1.5; margin: 0.9rem auto 0; max-width: 24rem; }
+    .button {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--bg);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.7rem 1.6rem;
+      border-radius: 4px;
+    }
+    .button:hover { opacity: 0.9; }
+
+    .faq dt { font-weight: 600; margin-top: 1.4rem; }
+    .faq dd { margin: 0.35rem 0 0; }
+    .faq dd p { margin: 0; }
+    .faq dd p + p { margin-top: 0.6rem; }
+
+    h3 { font-size: 1rem; font-weight: 600; margin: 2rem 0 0.4rem; }
+    .chart-caption { color: var(--muted); font-size: 0.9rem; margin: 0 0 0.9rem; }
+    .inst-chart { list-style: none; padding: 0; margin: 0 0 0.75rem; font-size: 0.9rem; }
+    .inst-chart li {
+      display: grid;
+      grid-template-columns: minmax(0, 19rem) minmax(0, 1fr);
+      align-items: center;
+      column-gap: 0.75rem;
+      margin: 0;
+      padding: 2px 0;
+      line-height: 1.3;
+    }
+    .inst-chart li:hover .inst-name, .inst-chart li:hover .inst-n { font-weight: 600; }
+    .inst-track { display: flex; align-items: center; gap: 0.4rem; }
+    .inst-bar {
+      flex: none;
+      height: 14px;
+      background: var(--accent);
+      border-radius: 0 4px 4px 0;
+    }
+    .inst-chart li:hover .inst-bar { opacity: 0.8; }
+    .inst-n { font-variant-numeric: tabular-nums; }
+    .chart-note { color: var(--muted); font-size: 0.9rem; }
+    @media (max-width: 600px) {
+      .inst-chart li { grid-template-columns: minmax(0, 9.5rem) minmax(0, 1fr); column-gap: 0.5rem; }
+    }
+    .signatories {
+      list-style: none;
+      padding: 0;
+      columns: 2 16rem;
+      column-gap: 2rem;
+    }
+    .signatories li { break-inside: avoid; margin-bottom: 0.5rem; line-height: 1.35; }
+    .signatories .inst { display: block; color: var(--muted); font-size: 0.9rem; }
+    .count { color: var(--muted); }
+
+    footer {
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    /* Wide screens: text scrolls on the left, statement stays fixed on the right */
+    @media (min-width: 960px) {
+      body { font-size: 1rem; line-height: 1.5; }
+      main {
+        max-width: 82rem;
+        padding: 0 2.5rem;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 25rem);
+        grid-template-areas: "intro panel" "rest panel";
+        column-gap: 3.5rem;
+        align-items: start;
+      }
+      h1 { font-size: 1.6rem; margin-bottom: 0.15rem; }
+      .subtitle { margin-bottom: 0.6rem; }
+      nav { margin-bottom: 1.1rem; font-size: 0.9rem; }
+      p, ol { margin-bottom: 0.8rem; }
+      li { margin-bottom: 0.2rem; }
+      .intro { grid-area: intro; padding-top: 2rem; }
+      .rest { grid-area: rest; padding-bottom: 5rem; }
+      .panel {
+        grid-area: panel;
+        position: sticky;
+        top: 0;
+        max-height: 100vh;
+        overflow-y: auto;
+        padding: 2rem 0 1.5rem;
+      }
+      .panel h2 { margin: 0 0 0.6rem; padding-top: 0; border-top: 0; }
+      .panel .statement { margin-top: 0; padding: 1.25rem 1.25rem 0.5rem; }
+      .panel .statement ol li { margin-bottom: 0.6rem; }
+      .panel .sign { margin-top: 1.25rem; }
+      .panel .footnote { margin-bottom: 0; }
+      nav .narrow-only { display: none; }
+    }
+  </style>
+</head>
+<body>
+<main>
+
+  <div class="intro">
+  {{header}}
+
+  <nav>
+    <a href="#introduction">Introduction</a>
+    <a href="#statement" class="narrow-only">Statement</a>
+    <a href="#sign" class="narrow-only">Sign</a>
+    <a href="#faq">FAQ</a>
+    <a href="#signatories">Signatories</a>
+  </nav>
+
+  <section id="introduction">
+{{intro}}
+  </section>
+  </div>
+
+  <aside class="panel">
+  <section id="statement">
+    <h2>Statement</h2>
+    <div class="statement">
+{{statement}}
+    </div>
+{{statement_footnotes}}
+  </section>
+
+  <section id="sign" class="sign">
+{{sign}}
+  </section>
+  </aside>
+
+  <div class="rest">
+  <section id="faq" class="faq">
+    <h2>FAQ</h2>
+{{faq}}
+  </section>
+
+  <section id="signatories">
+    <h2>Signatories <span class="count">({{count}})</span></h2>
+    <ul class="signatories">
+{{signatories}}
+    </ul>
+    <h3>By institution</h3>
+    <p class="chart-caption">{{count}} faculty from {{institutions}} institutions</p>
+{{institution_chart}}
+  </section>
+
+  <footer>
+    <p>Last updated {{updated}}.</p>
+  </footer>
+  </div>
+
+</main>
+</body>
+</html>

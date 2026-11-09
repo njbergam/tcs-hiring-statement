@@ -1,6 +1,6 @@
 # TCS Hiring Statement
 
-Static site for the statement on hiring in theoretical computer science. Everything lives in `index.html`; there is no build step.
+Static site for the statement on hiring in theoretical computer science.
 
 ## Publish on GitHub Pages
 
@@ -8,12 +8,29 @@ Static site for the statement on hiring in theoretical computer science. Everyth
 2. In the repository, go to **Settings → Pages**, set **Source** to "Deploy from a branch", choose `main` and `/ (root)`, and save.
 3. The site appears at `https://<user>.github.io/<repo>/` within a minute or two.
 
-## Updating signatories
+## Editing the page
 
-The list lives in `signatories.csv` (columns: Timestamp, Name, University, Department). After editing it, rebuild the list on the page:
+The text lives in Markdown files in `content/`:
+
+| File | Section |
+| --- | --- |
+| `header.md` | Title (`# ...`) and subtitle |
+| `intro.md` | Introduction |
+| `statement.md` | The statement and its footnote |
+| `sign.md` | Sign button (the link on its own line) and the text under it |
+| `faq.md` | FAQ: each `## ` line is a question, followed by its answer |
+
+Signatories live in `signatories.csv` (columns: Timestamp, Name, University, Department).
+
+After editing, rebuild and preview:
 
 ```sh
-python3 update_signatories.py
+python3 build.py
+open index.html
 ```
 
-The script drops duplicate names, sorts by last name, and rewrites the list in `index.html`. The count next to the heading updates automatically. Names whose last name isn't the final word (e.g. "François Le Gall") are listed in `SORT_AS` at the top of the script.
+Then commit and push, including the regenerated `index.html`. Don't edit `index.html` directly; it is overwritten on every build. Layout and styling are in `template.html`.
+
+Markdown supported: paragraphs, numbered and bulleted lists, `**bold**`, `*italic*`, `[links](https://...)`, and footnotes (`[^1]` in the text plus a `[^1]: ...` line). Straight quotes become curly quotes automatically.
+
+The build drops duplicate signatory names and sorts by last name. Names whose last name isn't the final word (e.g. "François Le Gall") are listed in `SORT_AS` at the top of `build.py`.
