@@ -8,12 +8,12 @@ Static site for the statement on hiring in theoretical computer science. Everyth
 2. In the repository, go to **Settings → Pages**, set **Source** to "Deploy from a branch", choose `main` and `/ (root)`, and save.
 3. The site appears at `https://<user>.github.io/<repo>/` within a minute or two.
 
-## Adding signatories
+## Updating signatories
 
-Add one line per verified signatory inside `<ul class="signatories">` in `index.html`:
+The list lives in `signatories.csv` (columns: Timestamp, Name, University, Department). After editing it, rebuild the list on the page:
 
-```html
-<li>Jane Doe <span class="inst">Example University</span></li>
+```sh
+python3 update_signatories.py
 ```
 
-The count next to the heading updates automatically.
+The script drops duplicate names, sorts by last name, and rewrites the list in `index.html`. The count next to the heading updates automatically. Names whose last name isn't the final word (e.g. "François Le Gall") are listed in `SORT_AS` at the top of the script.
