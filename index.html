@@ -10,22 +10,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #fdfcfa;
-      --fg: #1c1c1c;
+      --bg: #fff;
+      --fg: #111;
       --muted: #666;
-      --rule: #e2dfd8;
+      --rule: #ddd;
       --accent: #8a2b2b;
-      --box: #f5f2ec;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #161616;
-        --fg: #e8e6e1;
-        --muted: #9a9890;
-        --rule: #333;
-        --accent: #e08a7a;
-        --box: #1f1f1f;
-      }
+      --box: #f6f6f6;
     }
     * { box-sizing: border-box; }
     html { -webkit-text-size-adjust: 100%; }
@@ -44,32 +34,6 @@
     }
     .panel h2 { margin-top: 3.5rem; }
 
-    /* Wide screens: text scrolls on the left, statement stays fixed on the right */
-    @media (min-width: 960px) {
-      main {
-        max-width: 76rem;
-        padding: 0 2.5rem;
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 28rem);
-        grid-template-areas: "intro panel" "rest panel";
-        column-gap: 4.5rem;
-        align-items: start;
-      }
-      .intro { grid-area: intro; padding-top: 4rem; }
-      .rest { grid-area: rest; padding-bottom: 5rem; }
-      .panel {
-        grid-area: panel;
-        position: sticky;
-        top: 0;
-        max-height: 100vh;
-        overflow-y: auto;
-        padding: 4rem 0 2rem;
-      }
-      .panel h2 { margin-top: 0; padding-top: 0; border-top: 0; }
-      .panel .statement { margin-top: 0; }
-      .panel .sign { text-align: left; margin-top: 2rem; }
-      nav .narrow-only { display: none; }
-    }
     h1 {
       font-size: 2rem;
       line-height: 1.2;
@@ -112,7 +76,7 @@
       text-align: center;
       margin: 2.5rem 0 0;
     }
-    .sign p { color: var(--muted); font-size: 1rem; }
+    .sign p { color: var(--muted); font-size: 0.95rem; line-height: 1.5; margin: 0.9rem auto 0; max-width: 24rem; }
     .button {
       display: inline-block;
       background: var(--accent);
@@ -136,11 +100,46 @@
     .signatories li { break-inside: avoid; margin-bottom: 0.5rem; line-height: 1.35; }
     .signatories .inst { display: block; color: var(--muted); font-size: 0.9rem; }
     .count { color: var(--muted); }
+    .addendum-note { color: var(--muted); font-style: italic; }
 
     footer {
       margin-top: 4rem;
       font-size: 0.9rem;
       color: var(--muted);
+    }
+    /* Wide screens: text scrolls on the left, statement stays fixed on the right */
+    @media (min-width: 960px) {
+      body { font-size: 1rem; line-height: 1.5; }
+      main {
+        max-width: 82rem;
+        padding: 0 2.5rem;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 25rem);
+        grid-template-areas: "intro panel" "rest panel";
+        column-gap: 3.5rem;
+        align-items: start;
+      }
+      h1 { font-size: 1.6rem; margin-bottom: 0.15rem; }
+      .subtitle { margin-bottom: 0.6rem; }
+      nav { margin-bottom: 1.1rem; font-size: 0.9rem; }
+      p, ol { margin-bottom: 0.8rem; }
+      li { margin-bottom: 0.2rem; }
+      .intro { grid-area: intro; padding-top: 2rem; }
+      .rest { grid-area: rest; padding-bottom: 5rem; }
+      .panel {
+        grid-area: panel;
+        position: sticky;
+        top: 0;
+        max-height: 100vh;
+        overflow-y: auto;
+        padding: 2rem 0 1.5rem;
+      }
+      .panel h2 { margin: 0 0 0.6rem; padding-top: 0; border-top: 0; }
+      .panel .statement { margin-top: 0; padding: 1.25rem 1.25rem 0.5rem; }
+      .panel .statement ol li { margin-bottom: 0.6rem; }
+      .panel .sign { margin-top: 1.25rem; }
+      .panel .footnote { margin-bottom: 0; }
+      nav .narrow-only { display: none; }
     }
   </style>
 </head>
@@ -157,10 +156,11 @@
     <a href="#sign" class="narrow-only">Sign</a>
     <a href="#faq">FAQ</a>
     <a href="#signatories">Signatories</a>
+    <a href="#addendum">Addendum</a>
   </nav>
 
   <section id="introduction">
-    <p>In early September 2026, the Simons Center for Theoretical Computer Science held a working group called <em>AI and TCS: the next six months</em>. The goal of the workshop was to recommend actions for the community to take in the next six months to help the field adjust to the new reality. A summary as well as the full report can be found <a href="https://simons.berkeley.edu/news/ai-tcs-next-six-months">here</a>.</p>
+    <p>In early September 2026, the Simons Center for Theoretical Computer Science held a working group called <a href="https://simons.berkeley.edu/news-publications-videos/ai-tcs-working-group"><em>AI and TCS: the next six months</em></a>. The goal of the workshop was to recommend actions for the community to take in the next six months to help the field adjust to the new reality. The <a href="https://simons.berkeley.edu/AITCSreport?inline=">full report</a> is available online.</p>
 
     <p>One of the recommended actions (Action 7) concerned practices around hiring in the post-AI era. The two main challenges identified are that:</p>
     <ol>
@@ -170,9 +170,8 @@
 
     <p>These challenges obfuscate what early career researchers view as success and how their mentors should guide them. Without a conscious change to our culture and incentive structures, we may find the junior community engaged in an &ldquo;arms race&rdquo; in the number of research publications at the expense of quality of understanding and exposition.</p>
 
-    <p>We believe that one step in the right direction is to gather consensus from the senior members of our community around norms for hiring and evaluation. Ultimately, it will be up to individual departments to decide and publicize the details of their hiring criteria. In an effort to encourage this process as well as signal to the young people in the community the values of quality over quantity and depth of understanding, we are seeking signatures from tenured and tenure-track faculty in support of the following statement.</p>
+    <p>We believe that one step in the right direction is to gather consensus from the senior members of our community around norms for hiring and evaluation. In an effort to signal to the young people in the community the values of quality over quantity and depth of understanding, we are seeking signatures from tenured and tenure-track faculty in support of the following statement.</p>
 
-    <p>Included on this page are the statement, the link to sign, a brief FAQ addressing commonly voiced concerns, and finally an ongoing list of signatories.</p>
   </section>
   </div>
 
@@ -186,7 +185,7 @@
         <li><strong>Actively assess thorough understanding.</strong> Evaluate the thoroughness of the candidates&rsquo; understanding of the aforementioned works more than was done normally until now. This evaluation could take the form of a &ldquo;chalk talk,&rdquo; more mathematically substantial interview slots, and/or other methods of the department&rsquo;s choosing.</li>
       </ol>
     </div>
-    <p class="footnote" id="fn1"><sup>1</sup> In a manner consistent with university guidelines. <a href="#fnref1" aria-label="Back to statement">&#8617;</a></p>
+    <p class="footnote" id="fn1"><sup>1</sup> In a manner consistent with university guidelines.</p>
   </section>
 
   <section id="sign" class="sign">
@@ -225,6 +224,12 @@
     <ul class="signatories" id="signatory-list">
     </ul>
     <p class="count" id="empty">Signatures will appear here as they are verified.</p>
+  </section>
+
+  <section id="addendum">
+    <h2>Addendum</h2>
+    <p class="addendum-note">The following text was added by the organizers in early November, informed by conversations with junior researchers. It was not discussed in the Simons Institute working group in September 2026, and is not part of the petition above.</p>
+    <p>There is a wide range of views in the mathematical community on the use of AI for research. In the absence of explicit messaging from departments, job applicants do not know whether disclosing AI use in an application is expected and whether AI use will be penalized, rewarded, or neither. We encourage hiring committees to include a statement of values with hiring calls, clarifying their broad expectations and evaluation criteria around AI use. If it is difficult to include such language due to institutional constraints, faculty in a department may consider doing this as individuals.</p>
   </section>
 
   <footer>
