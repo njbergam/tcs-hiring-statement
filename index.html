@@ -42,6 +42,34 @@
       margin: 0 auto;
       padding: 4rem 1.25rem 5rem;
     }
+    .panel h2 { margin-top: 3.5rem; }
+
+    /* Wide screens: text scrolls on the left, statement stays fixed on the right */
+    @media (min-width: 960px) {
+      main {
+        max-width: 76rem;
+        padding: 0 2.5rem;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 28rem);
+        grid-template-areas: "intro panel" "rest panel";
+        column-gap: 4.5rem;
+        align-items: start;
+      }
+      .intro { grid-area: intro; padding-top: 4rem; }
+      .rest { grid-area: rest; padding-bottom: 5rem; }
+      .panel {
+        grid-area: panel;
+        position: sticky;
+        top: 0;
+        max-height: 100vh;
+        overflow-y: auto;
+        padding: 4rem 0 2rem;
+      }
+      .panel h2 { margin-top: 0; padding-top: 0; border-top: 0; }
+      .panel .statement { margin-top: 0; }
+      .panel .sign { text-align: left; margin-top: 2rem; }
+      nav .narrow-only { display: none; }
+    }
     h1 {
       font-size: 2rem;
       line-height: 1.2;
@@ -119,13 +147,14 @@
 <body>
 <main>
 
+  <div class="intro">
   <h1>A Statement on Hiring in Theoretical Computer Science</h1>
   <p class="subtitle">Supporting quality over quantity and depth of understanding in the post-AI era.</p>
 
   <nav>
     <a href="#introduction">Introduction</a>
-    <a href="#statement">Statement</a>
-    <a href="#sign">Sign</a>
+    <a href="#statement" class="narrow-only">Statement</a>
+    <a href="#sign" class="narrow-only">Sign</a>
     <a href="#faq">FAQ</a>
     <a href="#signatories">Signatories</a>
   </nav>
@@ -143,9 +172,11 @@
 
     <p>We believe that one step in the right direction is to gather consensus from the senior members of our community around norms for hiring and evaluation. Ultimately, it will be up to individual departments to decide and publicize the details of their hiring criteria. In an effort to encourage this process as well as signal to the young people in the community the values of quality over quantity and depth of understanding, we are seeking signatures from tenured and tenure-track faculty in support of the following statement.</p>
 
-    <p>Included below is the statement, the link to sign, a brief FAQ addressing commonly voiced concerns, and finally an ongoing list of signatories.</p>
+    <p>Included on this page are the statement, the link to sign, a brief FAQ addressing commonly voiced concerns, and finally an ongoing list of signatories.</p>
   </section>
+  </div>
 
+  <aside class="panel">
   <section id="statement">
     <h2>Statement</h2>
     <div class="statement">
@@ -162,7 +193,9 @@
     <a class="button" href="https://forms.gle/yCGrDta8qhkqLXi99" target="_blank" rel="noopener">Sign the statement</a>
     <p>If you are a tenured or tenure-track faculty member who works on theoretical computer science and you agree, please sign.</p>
   </section>
+  </aside>
 
+  <div class="rest">
   <section id="faq" class="faq">
     <h2>FAQ</h2>
     <dl>
@@ -197,6 +230,7 @@
   <footer>
     <p>Last updated November 2026.</p>
   </footer>
+  </div>
 
 </main>
 <script>
