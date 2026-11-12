@@ -196,42 +196,12 @@ def build_signatories():
         f'      <li>{html.escape(n)} <span class="inst">{html.escape(u)}</span></li>'
         for n, u in people
     )
-    return items, len(people), people
-
-
-# Institutions with at least this many signatories get their own bar in the chart.
-CHART_MIN = 1
-
-
-def build_institution_chart(people):
-    counts = {}
-    for _, inst in people:
-        if inst:
-            counts[inst] = counts.get(inst, 0) + 1
-    ranked = sorted(counts.items(), key=lambda kv: (-kv[1], kv[0]))
-    shown = [(i, n) for i, n in ranked if n >= CHART_MIN]
-    rest = [(i, n) for i, n in ranked if n < CHART_MIN]
-    top = max((n for _, n in shown), default=1)
-    rows = "\n".join(
-        f'      <li title="{html.escape(i)}: {n} signator{"y" if n == 1 else "ies"}">'
-        f'<span class="inst-name">{html.escape(i)}</span>'
-        f'<span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * {n / top:.3f})"></span>'
-        f'<span class="inst-n">{n}</span></span></li>'
-        for i, n in shown
-    )
-    note = ""
-    if rest:
-        each = " each" if len(rest) > 1 else ""
-        note = (f'    <p class="chart-note">Plus {len(rest)} institution{"s" if len(rest) > 1 else ""} '
-                f'with {"one signatory" if CHART_MIN == 2 else "fewer signatories"}{each}.</p>')
-    chart = f'    <ol class="inst-chart">\n{rows}\n    </ol>\n{note}'
-    return chart, len(counts)
+    return items, len(people)
 
 
 def main():
     statement, footnotes = build_statement()
-    signatories, count, people = build_signatories()
-    chart, institutions = build_institution_chart(people)
+    signatories, count = build_signatories()
     values = {
         "header": build_header(),
         "intro": render(read("intro.md")),
@@ -241,8 +211,6 @@ def main():
         "faq": build_faq(),
         "signatories": signatories,
         "count": str(count),
-        "institutions": str(institutions),
-        "institution_chart": chart,
         "updated": datetime.date.today().strftime("%B %Y"),
     }
     page = (HERE / "template.html").read_text(encoding="utf-8")

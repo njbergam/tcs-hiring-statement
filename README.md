@@ -20,7 +20,7 @@ The text lives in Markdown files in `content/`:
 | `sign.md` | Sign button (the link on its own line) and the text under it |
 | `faq.md` | FAQ: each `## ` line is a question, followed by its answer |
 
-Signatories live in `signatories.csv` (columns: Timestamp, Name, University, Department).
+Signatories live in `signatories.csv` (columns: Name, University, Department).
 
 After editing, rebuild and preview:
 
