@@ -11,6 +11,7 @@ Supported Markdown (kept deliberately small):
   - Numbered lists ("1. ...") and bulleted lists ("- ...")
   - ## Headings (in faq.md, each "## " line is a question)
   - **bold**, *italic*, [link text](https://...)
+  - > Quoted text (lines starting with ">"; a line with just ">" separates paragraphs)
   - Footnotes: [^1] in the text, and a line "[^1]: footnote text"
   - Straight quotes and apostrophes are turned into curly ones automatically.
 """
@@ -80,6 +81,9 @@ def blocks(md):
             out.append(("h", (level, first[level:].strip())))
             if lines[1:]:
                 out.append(("p", " ".join(l.strip() for l in lines[1:])))
+        elif first.startswith(">"):
+            inner = "\n".join(re.sub(r"^>\s?", "", l) for l in lines)
+            out.append(("quote", blocks(inner)))
         elif re.match(r"\[\^\w+\]:", first):
             for l in lines:
                 m = re.match(r"\[\^(\w+)\]:\s*(.*)", l)
@@ -118,6 +122,8 @@ def render(blist, indent=4, first_p_class=None):
         elif kind == "h":
             level, text = val
             html_out.append(f"{pad}<h{level}>{inline(text)}</h{level}>")
+        elif kind == "quote":
+            html_out.append(f"{pad}<blockquote>\n{render(val, indent + 2)}\n{pad}</blockquote>")
     return "\n".join(html_out)
 
 
@@ -209,6 +215,7 @@ def main():
         "statement_footnotes": footnotes,
         "sign": build_sign(),
         "faq": build_faq(),
+        "adopted": render(read("adopted.md")),
         "signatories": signatories,
         "count": str(count),
         "updated": datetime.date.today().strftime("%B %Y"),

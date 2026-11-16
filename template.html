@@ -92,6 +92,12 @@
     .faq dd { margin: 0.35rem 0 0; }
     .faq dd p { margin: 0; }
     .faq dd p + p { margin-top: 0.6rem; }
+    blockquote {
+      margin: 0.5rem 0 1.25rem;
+      padding: 0.1rem 0 0.1rem 1rem;
+      border-left: 3px solid var(--rule);
+    }
+    blockquote p:last-child { margin-bottom: 0; }
 
     .signatories {
       list-style: none;
@@ -155,6 +161,7 @@
     <a href="#statement" class="narrow-only">Statement</a>
     <a href="#sign" class="narrow-only">Sign</a>
     <a href="#faq">FAQ</a>
+    <a href="#adopted">Adopted</a>
     <a href="#signatories">Signatories</a>
   </nav>
 
@@ -181,6 +188,11 @@
   <section id="faq" class="faq">
     <h2>FAQ</h2>
 {{faq}}
+  </section>
+
+  <section id="adopted">
+    <h2>Adopted / Partially Adopted</h2>
+{{adopted}}
   </section>
 
   <section id="signatories">
