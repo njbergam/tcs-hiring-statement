@@ -31,6 +31,7 @@ SORT_AS = {
     "François Le Gall": "Le Gall",
     "Bhaskar Ray Chaudhury": "Ray Chaudhury",
     "Shayan Oveis Gharan": "Oveis Gharan",
+    "Emmanouil Vasileios Vlatakis Gkaragkounis": "Vlatakis Gkaragkounis",
 }
 
 
