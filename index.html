@@ -100,6 +100,32 @@
     }
     blockquote p:last-child { margin-bottom: 0; }
 
+    h3 { font-size: 1rem; font-weight: 600; margin: 2rem 0 0.4rem; }
+    .chart-caption { color: var(--muted); font-size: 0.9rem; margin: 0 0 0.9rem; }
+    .inst-chart { list-style: none; padding: 0; margin: 0 0 0.75rem; font-size: 0.9rem; }
+    .inst-chart li {
+      display: grid;
+      grid-template-columns: minmax(0, 19rem) minmax(0, 1fr);
+      align-items: center;
+      column-gap: 0.75rem;
+      margin: 0;
+      padding: 2px 0;
+      line-height: 1.3;
+    }
+    .inst-chart li:hover .inst-name, .inst-chart li:hover .inst-n { font-weight: 600; }
+    .inst-track { display: flex; align-items: center; gap: 0.4rem; }
+    .inst-bar {
+      flex: none;
+      height: 14px;
+      background: var(--accent);
+      border-radius: 0 4px 4px 0;
+    }
+    .inst-chart li:hover .inst-bar { opacity: 0.8; }
+    .inst-n { font-variant-numeric: tabular-nums; }
+    .chart-note { color: var(--muted); font-size: 0.9rem; }
+    @media (max-width: 600px) {
+      .inst-chart li { grid-template-columns: minmax(0, 9.5rem) minmax(0, 1fr); column-gap: 0.5rem; }
+    }
     .signatories {
       list-style: none;
       padding: 0;
@@ -235,7 +261,7 @@
   </section>
 
   <section id="signatories">
-    <h2>Signatories <span class="count">(132)</span></h2>
+    <h2>Signatories <span class="count">(135)</span></h2>
     <ul class="signatories">
       <li>Scott Aaronson <span class="inst">University of Texas at Austin</span></li>
       <li>Josh Alman <span class="inst">Columbia University</span></li>
@@ -257,6 +283,7 @@
       <li>Karthekeyan Chandrasekaran <span class="inst">University of Illinois Urbana-Champaign</span></li>
       <li>Hsien-Chih Chang <span class="inst">Dartmouth College</span></li>
       <li>Moses Charikar <span class="inst">Stanford University</span></li>
+      <li>Vaggos (Evangelos) Chatziafratis <span class="inst">University of California Santa Cruz</span></li>
       <li>Chandra Chekuri <span class="inst">University of Illinois Urbana-Champaign</span></li>
       <li>Sitan Chen <span class="inst">Harvard University</span></li>
       <li>Xi Chen <span class="inst">Columbia University</span></li>
@@ -338,8 +365,10 @@
       <li>Manjil Saikia <span class="inst">Ahmedabad University</span></li>
       <li>Juspreet Singh Sandhu <span class="inst">Colorado State University</span></li>
       <li>Jayalal Sarma <span class="inst">IIT Madras</span></li>
+      <li>Christian Schaffner <span class="inst">University of Amsterdam</span></li>
       <li>Tselil Schramm <span class="inst">Stanford University</span></li>
       <li>Rocco Servedio <span class="inst">Columbia University</span></li>
+      <li>C. Seshadhri <span class="inst">University of California Santa Cruz</span></li>
       <li>Alistair Sinclair <span class="inst">University of California Berkeley</span></li>
       <li>Sahil Singla <span class="inst">Georgia Institute of Technology</span></li>
       <li>Makrand Sinha <span class="inst">University of Illinois Urbana-Champaign</span></li>
@@ -370,6 +399,69 @@
       <li>David Zuckerman <span class="inst">University of Texas at Austin</span></li>
       <li>Uri Zwick <span class="inst">Tel Aviv University</span></li>
     </ul>
+    <h3>By institution</h3>
+    <p class="chart-caption">135 faculty from 58 institutions</p>
+    <ol class="inst-chart">
+      <li title="University of California Berkeley: 11 signatories"><span class="inst-name">University of California Berkeley</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 1.000)"></span><span class="inst-n">11</span></span></li>
+      <li title="Columbia University: 10 signatories"><span class="inst-name">Columbia University</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.909)"></span><span class="inst-n">10</span></span></li>
+      <li title="University of Illinois Urbana-Champaign: 9 signatories"><span class="inst-name">University of Illinois Urbana-Champaign</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.818)"></span><span class="inst-n">9</span></span></li>
+      <li title="Stanford University: 8 signatories"><span class="inst-name">Stanford University</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.727)"></span><span class="inst-n">8</span></span></li>
+      <li title="University of California San Diego: 6 signatories"><span class="inst-name">University of California San Diego</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.545)"></span><span class="inst-n">6</span></span></li>
+      <li title="Harvard University: 5 signatories"><span class="inst-name">Harvard University</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.455)"></span><span class="inst-n">5</span></span></li>
+      <li title="MIT: 4 signatories"><span class="inst-name">MIT</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.364)"></span><span class="inst-n">4</span></span></li>
+      <li title="Northwestern University: 4 signatories"><span class="inst-name">Northwestern University</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.364)"></span><span class="inst-n">4</span></span></li>
+      <li title="University of Washington: 4 signatories"><span class="inst-name">University of Washington</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.364)"></span><span class="inst-n">4</span></span></li>
+      <li title="Carnegie Mellon University: 3 signatories"><span class="inst-name">Carnegie Mellon University</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.273)"></span><span class="inst-n">3</span></span></li>
+      <li title="IIT Madras: 3 signatories"><span class="inst-name">IIT Madras</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.273)"></span><span class="inst-n">3</span></span></li>
+      <li title="New York University: 3 signatories"><span class="inst-name">New York University</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.273)"></span><span class="inst-n">3</span></span></li>
+      <li title="Ohio State University: 3 signatories"><span class="inst-name">Ohio State University</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.273)"></span><span class="inst-n">3</span></span></li>
+      <li title="Princeton University: 3 signatories"><span class="inst-name">Princeton University</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.273)"></span><span class="inst-n">3</span></span></li>
+      <li title="Purdue University: 3 signatories"><span class="inst-name">Purdue University</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.273)"></span><span class="inst-n">3</span></span></li>
+      <li title="University of Texas at Austin: 3 signatories"><span class="inst-name">University of Texas at Austin</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.273)"></span><span class="inst-n">3</span></span></li>
+      <li title="Dartmouth College: 2 signatories"><span class="inst-name">Dartmouth College</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.182)"></span><span class="inst-n">2</span></span></li>
+      <li title="EPFL: 2 signatories"><span class="inst-name">EPFL</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.182)"></span><span class="inst-n">2</span></span></li>
+      <li title="Georgia Institute of Technology: 2 signatories"><span class="inst-name">Georgia Institute of Technology</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.182)"></span><span class="inst-n">2</span></span></li>
+      <li title="Technion: 2 signatories"><span class="inst-name">Technion</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.182)"></span><span class="inst-n">2</span></span></li>
+      <li title="Toyota Technological Institute at Chicago: 2 signatories"><span class="inst-name">Toyota Technological Institute at Chicago</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.182)"></span><span class="inst-n">2</span></span></li>
+      <li title="University of Amsterdam: 2 signatories"><span class="inst-name">University of Amsterdam</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.182)"></span><span class="inst-n">2</span></span></li>
+      <li title="University of California Irvine: 2 signatories"><span class="inst-name">University of California Irvine</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.182)"></span><span class="inst-n">2</span></span></li>
+      <li title="University of California Los Angeles: 2 signatories"><span class="inst-name">University of California Los Angeles</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.182)"></span><span class="inst-n">2</span></span></li>
+      <li title="University of California Santa Cruz: 2 signatories"><span class="inst-name">University of California Santa Cruz</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.182)"></span><span class="inst-n">2</span></span></li>
+      <li title="University of Udine: 2 signatories"><span class="inst-name">University of Udine</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.182)"></span><span class="inst-n">2</span></span></li>
+      <li title="Weizmann Institute of Science: 2 signatories"><span class="inst-name">Weizmann Institute of Science</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.182)"></span><span class="inst-n">2</span></span></li>
+      <li title="Ahmedabad University: 1 signatory"><span class="inst-name">Ahmedabad University</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="Bocconi University: 1 signatory"><span class="inst-name">Bocconi University</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="Boston University: 1 signatory"><span class="inst-name">Boston University</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="Brown University: 1 signatory"><span class="inst-name">Brown University</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="Chalmers University of Technology: 1 signatory"><span class="inst-name">Chalmers University of Technology</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="Colorado State University: 1 signatory"><span class="inst-name">Colorado State University</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="Cornell University: 1 signatory"><span class="inst-name">Cornell University</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="Eindhoven University of Technology: 1 signatory"><span class="inst-name">Eindhoven University of Technology</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="IT University of Copenhagen: 1 signatory"><span class="inst-name">IT University of Copenhagen</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="Institute for Advanced Study: 1 signatory"><span class="inst-name">Institute for Advanced Study</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="Johns Hopkins University: 1 signatory"><span class="inst-name">Johns Hopkins University</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="Nagoya University: 1 signatory"><span class="inst-name">Nagoya University</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="National University of Singapore: 1 signatory"><span class="inst-name">National University of Singapore</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="New Jersey Institute of Technology: 1 signatory"><span class="inst-name">New Jersey Institute of Technology</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="North Carolina State University: 1 signatory"><span class="inst-name">North Carolina State University</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="Northeastern University: 1 signatory"><span class="inst-name">Northeastern University</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="Rutgers University: 1 signatory"><span class="inst-name">Rutgers University</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="TIFR: 1 signatory"><span class="inst-name">TIFR</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="Tel Aviv University: 1 signatory"><span class="inst-name">Tel Aviv University</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="The University of Sydney: 1 signatory"><span class="inst-name">The University of Sydney</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="University of California Davis: 1 signatory"><span class="inst-name">University of California Davis</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="University of Cambridge: 1 signatory"><span class="inst-name">University of Cambridge</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="University of Connecticut: 1 signatory"><span class="inst-name">University of Connecticut</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="University of Illinois Chicago: 1 signatory"><span class="inst-name">University of Illinois Chicago</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="University of Lisbon: 1 signatory"><span class="inst-name">University of Lisbon</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="University of Maryland: 1 signatory"><span class="inst-name">University of Maryland</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="University of Massachusetts Amherst: 1 signatory"><span class="inst-name">University of Massachusetts Amherst</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="University of Michigan: 1 signatory"><span class="inst-name">University of Michigan</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="University of Pennsylvania: 1 signatory"><span class="inst-name">University of Pennsylvania</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="University of Warwick: 1 signatory"><span class="inst-name">University of Warwick</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+      <li title="University of Wisconsin Madison: 1 signatory"><span class="inst-name">University of Wisconsin Madison</span><span class="inst-track"><span class="inst-bar" style="width:calc((100% - 2rem) * 0.091)"></span><span class="inst-n">1</span></span></li>
+    </ol>
+
   </section>
 
   <footer>
