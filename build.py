@@ -246,7 +246,7 @@ def main():
         "statement_footnotes": footnotes,
         "sign": build_sign(),
         "faq": build_faq(),
-        "adopted": render(read("adopted.md")),
+        "alignment": render(read("alignment.md")),
         "signatories": signatories,
         "count": str(count),
         "institutions": str(institutions),

@@ -98,6 +98,9 @@
       border-left: 3px solid var(--rule);
     }
     blockquote p:last-child { margin-bottom: 0; }
+    blockquote ul, blockquote ol { margin: 0; padding-left: 1.2rem; }
+    blockquote li { margin-bottom: 0.5rem; }
+    blockquote li:last-child { margin-bottom: 0; }
 
     h3 { font-size: 1rem; font-weight: 600; margin: 2rem 0 0.4rem; }
     .chart-caption { color: var(--muted); font-size: 0.9rem; margin: 0 0 0.9rem; }
@@ -187,7 +190,7 @@
     <a href="#statement" class="narrow-only">Statement</a>
     <a href="#sign" class="narrow-only">Sign</a>
     <a href="#faq">FAQ</a>
-    <a href="#adopted">Adopted</a>
+    <a href="#alignment">Alignment</a>
     <a href="#signatories">Signatories</a>
   </nav>
 
@@ -216,9 +219,9 @@
 {{faq}}
   </section>
 
-  <section id="adopted">
-    <h2>Adopted / Partially Adopted</h2>
-{{adopted}}
+  <section id="alignment">
+    <h2>Alignment / Partial Alignment</h2>
+{{alignment}}
   </section>
 
   <section id="signatories">

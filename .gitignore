@@ -1,3 +1,5 @@
 Draft of signing page.txt
 .DS_Store
 list of names.pdf
+*.pdf
+!hiring-calls-alignment/*.pdf
